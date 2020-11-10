@@ -234,6 +234,7 @@
     <Content Include="Views\Verdicts\Details.cshtml" />
     <Content Include="Views\Verdicts\Edit.cshtml" />
     <Content Include="Views\Verdicts\Index.cshtml" />
+    <Content Include="Views\Shared\DictionaryLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />

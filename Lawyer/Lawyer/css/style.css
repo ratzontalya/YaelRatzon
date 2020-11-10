@@ -1,3 +1,12 @@
+html{
+    float:right;
+    text-align:right;
+}
+.text-gold {
+    background: linear-gradient( #bf851a, #FDE08D, #DF9F28);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
 body {
     overflow-x: hidden;
 }
@@ -47,7 +56,6 @@ h4 {
     width: 100%;
     top: 0;
     left: 0;
-    background-color: transparent !important;
     color: white !important;
     z-index: 1000
 }
