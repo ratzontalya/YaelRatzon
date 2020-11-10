@@ -1,172 +1,186 @@
-﻿<header id="home">
-    <div class="content">
-        <div class="d-flex align-items-center flex-column justify-content-center">
-            <h1>Welcome To <br>Yael's website!</h1>
-            <p>ליעלולה!!!!!תהני!! סתם זה עדיין לא עובד, אז נא להרגע :)</p>
-            <a href="https://twitter.com/Dave_Conner" class="btn btn-1">
-                <svg>
-                    <rect x="0" y="0" fill="none" width="100%" height="100%" />
-                </svg>
-                Hover1
+﻿@*@{ 
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}*@
+<html dir="rtl">
+<body>
+    <header id="home">
+        <div class="content">
+            <div class="d-flex align-items-center flex-column justify-content-center">
+                <h1>ברוכה הבאה <br>לאתר של יעל!</h1>
+                <p></p>
+                <a href="#about" class="btn btn-1">
+                    <svg>
+                        <rect x="0" y="0" fill="none" width="100%" height="100%" />
+                    </svg>
+                    הכר את יעל
+                </a>
+                @*<a href="#">
+                        <span>read more</span>
+                        <i class="fas fa-long-arrow-alt-right fa-2x"></i>
+                    </a>*@
+            </div>
+        </div>
+        <div id="slideToNext" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="/imgs/header.jpg" class="d-block w-100">
+                </div>
+                <div class="carousel-item">
+                    <img src="/imgs/header.jpg" class="d-block w-100">
+                </div>
+                <div class="carousel-item">
+                    <img src="/imgs/header.jpg" class="d-block w-100">
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#slideToNext" role="button" data-slide="prev">
+                <i class="fas fa-chevron-left"></i>
+                <span class="sr-only">Previous</span>
             </a>
-            @*<a href="#">
-            <span>read more</span>
-            <i class="fas fa-long-arrow-alt-right fa-2x"></i>
-        </a>*@
+            <a class="carousel-control-next" href="#slideToNext" role="button" data-slide="next">
+                <i class="fas fa-chevron-right"></i>
+                <span class="sr-only">Next</span>
+            </a>
         </div>
-    </div>
-    <div id="slideToNext" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="/imgs/header.jpg" class="d-block w-100">
-            </div>
-            <div class="carousel-item">
-                <img src="/imgs/header.jpg" class="d-block w-100">
-            </div>
-            <div class="carousel-item">
-                <img src="/imgs/header.jpg" class="d-block w-100">
-            </div>
-        </div>
-        <a class="carousel-control-prev" href="#slideToNext" role="button" data-slide="prev">
-            <i class="fas fa-chevron-left"></i>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#slideToNext" role="button" data-slide="next">
-            <i class="fas fa-chevron-right"></i>
-            <span class="sr-only">Next</span>
-        </a>
-    </div>
-</header>
+    </header>
 
-<div class="about" id="about">
-    <div class="row">
-        <div class="col-lg-6 col-12">
-            <div class="img"><img src="/imgs/pic7.jpg"></div>
-        </div>
-        <div class="col-lg-6 col-12 text-right">
-            <div class="about-child">
-                <h2 class="text-uppercase"><span>abo</span>ut us</h2>
-                <p>Get full range of premium Industrial services for your business</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et </p>
-                <a href="#"><i class="fas fa-long-arrow-alt-left fa-2x"></i><span>Read more</span></a>
+    <div class="about" id="about" style="background:#ebebeb">
+        <div class="row">
+            @*<div class="col-lg-6 col-12">
+                <div class="img"><img src="/imgs/pic7.jpg"></div>
+            </div>*@
+            <div class="col-lg-6 col-12 text-right">
+                <div class="about-child">
+                    @*<h2 class="text-uppercase">יעל</h2>*@
+                    <p>שלום, שמי יעל.</p>
+                    <p>פנו אלי שאעזור לכם...וכו וכו....</p>
+                    @*button with arrow*@
+                    @*<a href="#"><i class="fas fa-long-arrow-alt-left fa-2x"></i><span>Read more</span></a>*@
 
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="services" id="service">
-    <div class="container"><h2 class="text-capitalize"><span>Our</span> services</h2></div>
-    <div class="services-child">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 col-md-6 col-12">
-                    <div>
-                        <img src="/imgs/pic4.jpg">
-                        <a href="#"><h4>Chemical Refinery</h4></a>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, qui</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-12">
-                    <div>
-                        <img src="/imgs/pic5.jpg">
-                        <a href="#"><h4>Steel Industry</h4></a>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, qui</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-12">
-                    <div>
-                        <img src="/imgs/pic6.jpg">
-                        <a href="#"><h4>Auto Engineering</h4></a>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, qui</p>
-                    </div>
-                </div>
-            </div>
-            <a href="#"><i class="fas fa-long-arrow-alt-left fa-2x"></i><span>Read more</span></a>
-        </div>
-    </div>
-</div>
-
-<div class="project">
-    <div class="container"><h2 class="text-capitalize"><span>rece</span>nt projects</h2></div>
-    <div class="project-child">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 col-md-6 col-12">
-                    <div>
-                        <a href="#">
-                            <img src="/imgs/pic1.jpg">
-                            <div class="yellow-overlay d-flex align-items-center justify-content-center">
-                                <p>Auto engineering</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-12">
-                    <div>
-                        <a href="#">
-                            <img src="/imgs/pic2.jpg">
-                            <div class="yellow-overlay d-flex align-items-center justify-content-center">
-                                <p>Auto engineering</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-12">
-                    <div>
-                        <a href="#">
-                            <img src="/imgs/pic3.jpg">
-                            <div class="yellow-overlay d-flex align-items-center justify-content-center">
-                                <p>Auto engineering</p>
-                            </div>
-                        </a>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
-<div class="contact" id="contact">
-    <div class="container"><h2 class="text-capitalize"><span>get</span> in touch</h2></div>
-    <div class="contact-child">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-12">
-                    <div class="contact-form">
-                        <form>
-                            <input type="text" placeholder="Your name">
-                            <input type="text" placeholder="Your Phone number">
-                            <input type="email" placeholder="Your email">
-                            <textarea placeholder="Message"></textarea>
-                            <input type="submit" value="send" class="text-uppercase">
-                        </form>
+    <div class="services text-right" id="service" style="background:black; padding-top:20px">
+        <div class="container"><h2 style="color:gold"  class="text-capitalize text-center">לשירותכם המידע הבא</h2></div>
+        <div class="services-child">
+            <div class="container">
+                <div class="col">
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <div>
+                            <img src="/imgs/pic4.jpg">
+                            <a href="#"><h4>חקיקה</h4></a>
+                            <p>מה זה החקיקה הזו</p>
+                            <a href="~/verdicts" class="btn btn-1">
+                                <svg>
+                                    <rect x="0" y="0" fill="none" width="100%" height="100%" />
+                                </svg>
+                                לחקיקות
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <div>
+                            <img src="/imgs/pic5.jpg">
+                            <a href="#"><h4>Steel Industry</h4></a>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, qui</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <div>
+                            <img src="/imgs/pic6.jpg">
+                            <a href="#"><h4>Auto Engineering</h4></a>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, qui</p>
+                        </div>
+                    </div>
+                </div>
+                @*<a href="#"><i class="fas fa-long-arrow-alt-left fa-2x"></i><span>Read more</span></a>*@
+            </div>
+        </div>
+    </div>
+
+    <div class="project">
+        <div class="container"><h2 class="text-capitalize"><span>rece</span>nt projects</h2></div>
+        <div class="project-child">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <div>
+                            <a href="#">
+                                <img src="/imgs/pic1.jpg">
+                                <div class="yellow-overlay d-flex align-items-center justify-content-center">
+                                    <p>Auto engineering</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <div>
+                            <a href="#">
+                                <img src="/imgs/pic2.jpg">
+                                <div class="yellow-overlay d-flex align-items-center justify-content-center">
+                                    <p>Auto engineering</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <div>
+                            <a href="#">
+                                <img src="/imgs/pic3.jpg">
+                                <div class="yellow-overlay d-flex align-items-center justify-content-center">
+                                    <p>Auto engineering</p>
+                                </div>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
-<div class="testimonial" id="test">
-    <div class="container"><h2 class="text-capitalize text-center"><span>test</span>imonial</h2></div>
-    <div class="test-child">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-2 col-md-1"></div>
-                <div class="col-lg-2 col-md-3 col-4"><img src="/imgs/pic8.jpg"></div>
-                <div class="col-lg-6 col-8">
-                    <h4 class="text-ippercase">helina</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-2 col-md-3 col-4"><img src="/imgs/pic9.jpg"></div>
-                <div class="col-lg-6 col-8">
-                    <h4 class="text-ippercase">jackson</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco</p>
+    <div class="contact" id="contact">
+        <div class="container"><h2 class="text-capitalize"><span>get</span> in touch</h2></div>
+        <div class="contact-child">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-12">
+                        <div class="contact-form">
+                            <form>
+                                <input type="text" placeholder="Your name">
+                                <input type="text" placeholder="Your Phone number">
+                                <input type="email" placeholder="Your email">
+                                <textarea placeholder="Message"></textarea>
+                                <input type="submit" value="send" class="text-uppercase">
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+
+    <div class="testimonial" id="test">
+        <div class="container"><h2 class="text-capitalize text-center"><span>test</span>imonial</h2></div>
+        <div class="test-child">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-2 col-md-1"></div>
+                    <div class="col-lg-2 col-md-3 col-4"><img src="/imgs/pic8.jpg"></div>
+                    <div class="col-lg-6 col-8">
+                        <h4 class="text-ippercase">helina</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-2 col-md-3 col-4"><img src="/imgs/pic9.jpg"></div>
+                    <div class="col-lg-6 col-8">
+                        <h4 class="text-ippercase">jackson</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

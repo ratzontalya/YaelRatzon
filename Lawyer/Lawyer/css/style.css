@@ -33,7 +33,11 @@ h2 span {
 }
 
 h2 {
-    margin-bottom: 30px
+    margin-bottom: 30px;
+    color:gold;
+}
+h4 {
+    color: gold;
 }
 
 /* navbar */

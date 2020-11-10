@@ -9,8 +9,7 @@
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/buttons.css">
 </head>
-    <body>
-        
+<body>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container">
                 <a class="navbar-brand" href="index.html"><img src="/imgs/logo.png" width="200" alt="#" /></a>
@@ -21,131 +20,131 @@
                 <div class="collapse navbar-collapse text-capitalize" id="nav-links">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item active">
-                            <a class="nav-link" href="#home">Home <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="#about">הכירו את יעל <span class="sr-only"></span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#about">About</a>
+                            <a class="nav-link" href="~/Verdicts">חקיקה</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#service">services</a>
+                            <a class="nav-link" href="~/legislations">תקצירי פסיקה</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#test">testimonial</a>
+                            <a class="nav-link" href="~/QandA">שאילתות</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#contact">contact us</a>
+                            <a class="nav-link" href="~/Terms">מונחים</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link log" href="#">Log in/Register</a>
+                            <a class="nav-link log" href="#">האם אתה מנהל האתר?</a>
                         </li>
-                        <li class="nav-item search">
-                            <a class="nav-link search-link" href=""><i class="fas fa-search"></i></a>
-                            <form>
-                                <input type="search">
-                            </form>
-                        </li>
+                        @*<li class="nav-item search">
+                                <a class="nav-link search-link" href=""><i class="fas fa-search"></i></a>
+                                <form>
+                                    <input type="search">
+                                </form>
+                            </li>*@
                     </ul>
                 </div>
             </div>
         </nav>
-        @RenderBody()        
-        <footer>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-3 col-12">
-                        <a href="index.html" class="logo"><img src="/imgs/logo.jpg" alt="#" /></a>
-                    </div>
-                    <div class="col-lg-9 col-12">
-                        <div class="row">
-                            <div class="col-md-4 col-12">
-                                <i class="fas fa-map-marker-alt fa-2x"></i>
-                                <span>Gb road 123 london Uk </span>
-                            </div>
-                            <div class="col-md-4 col-12">
-                                <i class="fas fa-phone fa-2x"></i>
-                                <span>(+71) 56982424536</span>
-                            </div>
-                            <div class="col-md-4 col-12">
-                                <i class="fas fa-envelope fa-2x"></i>
-                                <span>work@gmail.com</span>
-                            </div>
-                        </div>
-                    </div>
+    @RenderBody()
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-12">
+                    <a href="index.html" class="logo"><img src="/imgs/logo.jpg" alt="#" /></a>
                 </div>
-                <div class="row">
-                    <div class="col-lg-3 col-md-6 col-12">
-                        <div class="item">
-                            <h4 class="text-capitalize">about factory</h4>
-                            <p>Simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                <div class="col-lg-9 col-12">
+                    <div class="row">
+                        <div class="col-md-4 col-12">
+                            <i class="fas fa-map-marker-alt fa-2x"></i>
+                            <span>Gb road 123 london Uk </span>
+                        </div>
+                        <div class="col-md-4 col-12">
+                            <i class="fas fa-phone fa-2x"></i>
+                            <span>(+71) 56982424536</span>
+                        </div>
+                        <div class="col-md-4 col-12">
+                            <i class="fas fa-envelope fa-2x"></i>
+                            <span>work@gmail.com</span>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6 col-12">
-                        <div class="item">
-                            <h4 class="text-capitalize">Menu</h4>
-                            <ul class='text-capitalize main-list'>
-                                <li><a href="#home">home</a></li>
-                                <li><a href="#about">about us</a></li>
-                                <li><a href="#service">Services</a></li>
-                                <li><a href="#test">testimonial</a></li>
-                                <li><a href="#contact">contact us</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-12">
-                        <div class="item">
-                            <h4 class="text-capitalize">Our network</h4>
-                            <ul class="text-capitalize">
-                                <li><a href="#">Adopt a pet</a></li>
-                                <li><a href="#">create awareness</a></li>
-                                <li><a href="#">join compaign</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-12">
-                        <div class="item">
-                            <h4 class="text-capitalize">about factory</h4>
-                            <form>
-                                <input type="text" placeholder="Enter your email">
-                                <input type="submit" value="Subscribe">
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <ul class="social-media">
-                    <li><a href="#"><i class="fab fa-facebook-square fa-2x"></i></a></li>
-                    <li><a href="#"><i class="fab fa-twitter-square fa-2x"></i></a></li>
-                    <li><a href="#"><i class="fab fa-google-plus-square fa-2x"></i></a></li>
-                    <li><a href="#"><i class="fab fa-linkedin fa-2x"></i></a></li>
-                </ul>
-                <div class="copyright">
-                    <p>© 2018 All Rights Reserved. Free Website Templates</p>
                 </div>
             </div>
-        </footer>    
-            
-        <script src="/js/jquery-3.3.1.min.js"></script>
-        <script src="/js/bootstrap.min.js"></script>
-        <script>
-            $(function () {
-                
-                'use strict';
-                
-                var winH = $(window).height();
-                
-                $('header, .slide').height(winH);
-                
-                $('.navbar a.search-link').on('click', function () {
-                    $(this).siblings('form').fadeToggle();
-                });
-                
-                $('.navbar ul.navbar-nav li a, footer ul.main-list li a').on('click', function (e) {
-                    
-                    var getAttr = $(this).attr('href');
-                    
-                    e.preventDefault();
-                    $('html').animate({scrollTop: $(getAttr).offset().top}, 1000);
-                });
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-12">
+                    <div class="item">
+                        <h4 class="text-capitalize">about factory</h4>
+                        <p>Simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-12">
+                    <div class="item">
+                        <h4 class="text-capitalize">Menu</h4>
+                        <ul class='text-capitalize main-list'>
+                            <li><a href="#home">home</a></li>
+                            <li><a href="#about">about us</a></li>
+                            <li><a href="#service">Services</a></li>
+                            <li><a href="#test">testimonial</a></li>
+                            <li><a href="#contact">contact us</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-12">
+                    <div class="item">
+                        <h4 class="text-capitalize">Our network</h4>
+                        <ul class="text-capitalize">
+                            <li><a href="#">Adopt a pet</a></li>
+                            <li><a href="#">create awareness</a></li>
+                            <li><a href="#">join compaign</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-12">
+                    <div class="item">
+                        <h4 class="text-capitalize">about factory</h4>
+                        <form>
+                            <input type="text" placeholder="Enter your email">
+                            <input type="submit" value="Subscribe">
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <ul class="social-media">
+                <li><a href="#"><i class="fab fa-facebook-square fa-2x"></i></a></li>
+                <li><a href="#"><i class="fab fa-twitter-square fa-2x"></i></a></li>
+                <li><a href="#"><i class="fab fa-google-plus-square fa-2x"></i></a></li>
+                <li><a href="#"><i class="fab fa-linkedin fa-2x"></i></a></li>
+            </ul>
+            <div class="copyright">
+                <p>© 2018 All Rights Reserved. Free Website Templates</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/jquery-3.3.1.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script>
+        $(function () {
+
+            'use strict';
+
+            var winH = $(window).height();
+
+            $('header, .slide').height(winH);
+
+            $('.navbar a.search-link').on('click', function () {
+                $(this).siblings('form').fadeToggle();
             });
-        </script>
-    </body>
+
+            $('.navbar ul.navbar-nav li a, footer ul.main-list li a').on('click', function (e) {
+
+                var getAttr = $(this).attr('href');
+
+                e.preventDefault();
+                $('html').animate({ scrollTop: $(getAttr).offset().top }, 1000);
+            });
+        });
+    </script>
+</body>
 </html>
