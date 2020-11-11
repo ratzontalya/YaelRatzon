@@ -7,18 +7,18 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using BE;
-using Lawyer.Data;
+using BL;
 
 namespace Lawyer.Controllers
 {
     public class VerdictsController : Controller
     {
-        private VerdictContext db = new VerdictContext();
+        private IBL bl = new BL.BL();
 
         // GET: Verdicts
         public ActionResult Index()
         {
-            return View(db.Verdicts.ToList());
+            return View(bl.GetVerdicts());
         }
 
         // GET: Verdicts/Details/5
@@ -28,7 +28,7 @@ namespace Lawyer.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Verdict verdict = db.Verdicts.Find(id);
+            Verdict verdict = bl.GetVerdictById(id);
             if (verdict == null)
             {
                 return HttpNotFound();
@@ -51,8 +51,7 @@ namespace Lawyer.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Verdicts.Add(verdict);
-                db.SaveChanges();
+                bl.AddVerdict(verdict);
                 return RedirectToAction("Index");
             }
 
@@ -66,7 +65,7 @@ namespace Lawyer.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Verdict verdict = db.Verdicts.Find(id);
+            Verdict verdict = bl.GetVerdictById(id);
             if (verdict == null)
             {
                 return HttpNotFound();
@@ -83,8 +82,7 @@ namespace Lawyer.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(verdict).State = EntityState.Modified;
-                db.SaveChanges();
+                bl.UpdateVerdict(verdict);
                 return RedirectToAction("Index");
             }
             return View(verdict);
@@ -97,7 +95,7 @@ namespace Lawyer.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Verdict verdict = db.Verdicts.Find(id);
+            Verdict verdict = bl.GetVerdictById(id);
             if (verdict == null)
             {
                 return HttpNotFound();
@@ -110,19 +108,17 @@ namespace Lawyer.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Verdict verdict = db.Verdicts.Find(id);
-            db.Verdicts.Remove(verdict);
-            db.SaveChanges();
+            bl.DeleteVerdict(id);
             return RedirectToAction("Index");
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+        //protected override void Dispose(bool disposing)
+        //{
+        //    if (disposing)
+        //    {
+        //        db.Dispose();
+        //    }
+        //    base.Dispose(disposing);
+        //}
     }
 }

@@ -7,18 +7,18 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using BE;
-using Lawyer.Data;
+using BL;
 
 namespace Lawyer.Controllers
 {
     public class legislationsController : Controller
     {
-        private legislationContext db = new legislationContext();
+        private IBL bl = new BL.BL();
 
         // GET: legislations
         public ActionResult Index()
         {
-            return View(db.legislations.ToList());
+            return View(bl.GetLegislations());
         }
 
         // GET: legislations/Details/5
@@ -28,7 +28,7 @@ namespace Lawyer.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            legislation legislation = db.legislations.Find(id);
+            legislation legislation = bl.GetLegislationById(id);
             if (legislation == null)
             {
                 return HttpNotFound();
@@ -51,8 +51,7 @@ namespace Lawyer.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.legislations.Add(legislation);
-                db.SaveChanges();
+                bl.AddLegislation(legislation);
                 return RedirectToAction("Index");
             }
 
@@ -66,7 +65,7 @@ namespace Lawyer.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            legislation legislation = db.legislations.Find(id);
+            legislation legislation = bl.GetLegislationById(id);
             if (legislation == null)
             {
                 return HttpNotFound();
@@ -83,8 +82,7 @@ namespace Lawyer.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(legislation).State = EntityState.Modified;
-                db.SaveChanges();
+                bl.UpdateLegislation(legislation);
                 return RedirectToAction("Index");
             }
             return View(legislation);
@@ -97,7 +95,7 @@ namespace Lawyer.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            legislation legislation = db.legislations.Find(id);
+            legislation legislation = bl.GetLegislationById(id);
             if (legislation == null)
             {
                 return HttpNotFound();
@@ -110,19 +108,17 @@ namespace Lawyer.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            legislation legislation = db.legislations.Find(id);
-            db.legislations.Remove(legislation);
-            db.SaveChanges();
+            bl.DeleteLegislation(id);
             return RedirectToAction("Index");
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+        //protected override void Dispose(bool disposing)
+        //{
+        //    if (disposing)
+        //    {
+        //        db.Dispose();
+        //    }
+        //    base.Dispose(disposing);
+        //}
     }
 }

@@ -1,51 +1,58 @@
 ﻿@model BE.QandA
-
-@{
-    Layout = null;
-}
+@using Lawyer.Extentions
 
 <!DOCTYPE html>
 
-<html>
+<html dir="rtl">
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Create</title>
 </head>
-<body>
+<body dir="rtl" style="text-align:right">
+    <br />
+    <br />
+    <br />
+    <br />
     @using (Html.BeginForm()) 
     {
         @Html.AntiForgeryToken()
         
-        <div class="form-horizontal">
-            <h4>QandA</h4>
-            <hr />
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            <div class="form-group">
-                @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
-                </div>
-            </div>
-    
-            <div class="form-group">
-                @Html.LabelFor(model => model.Data, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Data, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Data, "", new { @class = "text-danger" })
-                </div>
-            </div>
-    
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Create" class="btn btn-default" />
-                </div>
-            </div>
+<div class="form-horizontal">
+    <h4>שאילתה</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.Label("שאלה")
+        <div class="col-md-10">
+            @Html.TextAreaFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
         </div>
+    </div>
+
+    <div class="form-group">
+        @Html.Label("תשובה")
+        <div class="col-md-10">
+            @Html.TextAreaFor(model => model.Data, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Data, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.Label("נושא")
+        <div class="col-md-10">
+            @Html.DropDownListForTerms("TermId")
+            @Html.ValidationMessageFor(model => model.Data, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="שמור" class="btn btn-default" />
+        </div>
+    </div>
+</div>
     }
     
-    <div>
-        @Html.ActionLink("Back to List", "Index")
+    <div dir="ltr" style="text-align:left">
+        @Html.ActionLink("חזרה לרשימה", "Index")
     </div>
 </body>
 </html>

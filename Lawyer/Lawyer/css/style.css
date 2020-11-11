@@ -1,6 +1,14 @@
-html{
-    float:right;
-    text-align:right;
+textarea{
+    resize:both;
+    width:600px;
+    height:100px;
+}
+a:not([href]):not([tabindex]):hover {
+    color: gold;
+}
+html {
+    float: right;
+    text-align: right;
 }
 .text-gold {
     background: linear-gradient( #bf851a, #FDE08D, #DF9F28);
@@ -16,7 +24,8 @@ li {
 }
 
 a:hover {
-    text-decoration: none
+    text-decoration: none;
+    color:gold;
 }
 
 a {
@@ -24,6 +33,7 @@ a {
     -moz-transition: all .5s ease;
     -o-transition: all .5s ease;
     transition: all .5s ease;
+    color: black;
 }
 
 .small-container {

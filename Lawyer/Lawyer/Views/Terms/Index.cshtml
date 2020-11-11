@@ -1,7 +1,30 @@
 ﻿@model IEnumerable<BE.Term>
-
+@using BE
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/DictionaryLayout.cshtml";
+}
+@{
+    int counterLetters = 1;
+    int counterQuestions = 1;
+    foreach (var letter in Enum.GetValues(typeof(Enums.AlphaAndBeta)))
+    {
+        <div id="text_@counterLetters" hidden="hidden">
+            @foreach (var item in Model.Where(q => q.Title[0].ToString() == letter.ToString()).ToList())
+            {
+                <div id="@counterLetters @counterQuestions">
+                    <br />
+                    <br />
+                    <br />
+                    <h2 class="text-gold">@item.Title</h2>
+                    <hr />
+                    <p class="ml-5">@item.Data</p>
+                </div>
+                counterQuestions++;
+            }
+        </div>
+        counterQuestions = 1;
+        counterLetters++;
+    }
 }
 
 <!DOCTYPE html>
@@ -25,23 +48,24 @@
             </th>
             <th></th>
         </tr>
-    
-    @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Data)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-                @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-            </td>
-        </tr>
-    }
-    
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Data)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                </td>
+            </tr>
+        }
+
     </table>
 </body>
 </html>

@@ -7,28 +7,29 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using BE;
-using Lawyer.Data;
+using BL;
 
 namespace Lawyer.Controllers
 {
     public class QandAsController : Controller
     {
-        private QandAContext db = new QandAContext();
 
         // GET: QandAs
         public ActionResult Index()
         {
-            return View(db.QandAs.ToList());
+            IBL bl = new BL.BL();
+            return View(bl.GetQandAs());
         }
 
         // GET: QandAs/Details/5
         public ActionResult Details(int? id)
         {
+            IBL bl = new BL.BL();
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            QandA qandA = db.QandAs.Find(id);
+            QandA qandA = bl.GetQandAById(id);
             if (qandA == null)
             {
                 return HttpNotFound();
@@ -51,8 +52,8 @@ namespace Lawyer.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.QandAs.Add(qandA);
-                db.SaveChanges();
+                IBL bl = new BL.BL();
+                bl.AddQandA(qandA);
                 return RedirectToAction("Index");
             }
 
@@ -62,11 +63,12 @@ namespace Lawyer.Controllers
         // GET: QandAs/Edit/5
         public ActionResult Edit(int? id)
         {
+            IBL bl = new BL.BL();
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            QandA qandA = db.QandAs.Find(id);
+            QandA qandA = bl.GetQandAById(id);
             if (qandA == null)
             {
                 return HttpNotFound();
@@ -81,10 +83,10 @@ namespace Lawyer.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "ID,Title,Data")] QandA qandA)
         {
+            IBL bl = new BL.BL();
             if (ModelState.IsValid)
             {
-                db.Entry(qandA).State = EntityState.Modified;
-                db.SaveChanges();
+                bl.UpdateQandA(qandA);
                 return RedirectToAction("Index");
             }
             return View(qandA);
@@ -93,11 +95,12 @@ namespace Lawyer.Controllers
         // GET: QandAs/Delete/5
         public ActionResult Delete(int? id)
         {
+            IBL bl = new BL.BL();
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            QandA qandA = db.QandAs.Find(id);
+            QandA qandA = bl.GetQandAById(id);
             if (qandA == null)
             {
                 return HttpNotFound();
@@ -110,19 +113,18 @@ namespace Lawyer.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            QandA qandA = db.QandAs.Find(id);
-            db.QandAs.Remove(qandA);
-            db.SaveChanges();
+            IBL bl = new BL.BL();
+            bl.DeleteQandA(id);
             return RedirectToAction("Index");
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+        //protected override void Dispose(bool disposing)
+        //{
+        //    if (disposing)
+        //    {
+        //        db.Dispose();
+        //    }
+        //    base.Dispose(disposing);
+        //}
     }
 }

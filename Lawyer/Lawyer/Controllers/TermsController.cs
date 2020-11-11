@@ -7,28 +7,29 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using BE;
-using Lawyer.Data;
+using BL;
 
 namespace Lawyer.Controllers
 {
     public class TermsController : Controller
     {
-        private TermContext db = new TermContext();
 
         // GET: Terms
         public ActionResult Index()
         {
-            return View(db.Terms.ToList());
+            IBL bl = new BL.BL();
+            return View(bl.GetTerms());
         }
 
         // GET: Terms/Details/5
         public ActionResult Details(int? id)
         {
+            IBL bl = new BL.BL();
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Term term = db.Terms.Find(id);
+            Term term = bl.GetTermById(id);
             if (term == null)
             {
                 return HttpNotFound();
@@ -51,8 +52,8 @@ namespace Lawyer.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Terms.Add(term);
-                db.SaveChanges();
+                IBL bl = new BL.BL();
+                bl.AddTerm(term);
                 return RedirectToAction("Index");
             }
 
@@ -62,11 +63,12 @@ namespace Lawyer.Controllers
         // GET: Terms/Edit/5
         public ActionResult Edit(int? id)
         {
+            IBL bl = new BL.BL();
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Term term = db.Terms.Find(id);
+            Term term = bl.GetTermById(id);
             if (term == null)
             {
                 return HttpNotFound();
@@ -81,10 +83,10 @@ namespace Lawyer.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "ID,Title,Data")] Term term)
         {
+            IBL bl = new BL.BL();
             if (ModelState.IsValid)
             {
-                db.Entry(term).State = EntityState.Modified;
-                db.SaveChanges();
+                bl.UpdateTerm(term);
                 return RedirectToAction("Index");
             }
             return View(term);
@@ -93,11 +95,12 @@ namespace Lawyer.Controllers
         // GET: Terms/Delete/5
         public ActionResult Delete(int? id)
         {
+            IBL bl = new BL.BL();
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Term term = db.Terms.Find(id);
+            Term term = bl.GetTermById(id);
             if (term == null)
             {
                 return HttpNotFound();
@@ -110,19 +113,18 @@ namespace Lawyer.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Term term = db.Terms.Find(id);
-            db.Terms.Remove(term);
-            db.SaveChanges();
+            IBL bl = new BL.BL();
+            bl.DeleteTerm(id);
             return RedirectToAction("Index");
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+        //protected override void Dispose(bool disposing)
+        //{
+        //    if (disposing)
+        //    {
+        //        db.Dispose();
+        //    }
+        //    base.Dispose(disposing);
+        //}
     }
 }

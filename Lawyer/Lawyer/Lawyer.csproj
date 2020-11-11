@@ -132,10 +132,7 @@
     <Compile Include="Controllers\QandAsController.cs" />
     <Compile Include="Controllers\TermsController.cs" />
     <Compile Include="Controllers\VerdictsController.cs" />
-    <Compile Include="App_Data\legislationContext.cs" />
-    <Compile Include="App_Data\QandAContext.cs" />
-    <Compile Include="App_Data\TermContext.cs" />
-    <Compile Include="App_Data\VerdictContext.cs" />
+    <Compile Include="Extentions\Extentions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -171,6 +168,7 @@
     <Content Include="index.html" />
     <Content Include="js\bootstrap.min.js" />
     <Content Include="js\jquery-3.3.1.min.js" />
+    <Content Include="js\ShowRelevantText.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="webfonts\fa-brands-400.svg" />
@@ -237,6 +235,7 @@
     <Content Include="Views\Shared\DictionaryLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Data\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
@@ -260,6 +259,10 @@
     <ProjectReference Include="..\BL\BL.csproj">
       <Project>{29d4173a-ea5d-4aa1-9da4-644ea9878f0a}</Project>
       <Name>BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{F302661E-9CF9-4D69-95E8-A431E889DCD2}</Project>
+      <Name>DAL</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

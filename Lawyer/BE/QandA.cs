@@ -8,6 +8,6 @@ namespace BE
 {
     public class QandA : Section
     {
-
+        public int? TermId { get; set; }
     }
 }

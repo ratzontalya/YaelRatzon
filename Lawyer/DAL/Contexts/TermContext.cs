@@ -19,6 +19,5 @@ namespace Lawyer.Data
         {
         }
 
-        public System.Data.Entity.DbSet<BE.Term> Terms { get; set; }
     }
 }

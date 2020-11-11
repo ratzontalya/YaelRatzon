@@ -1,4 +1,5 @@
-﻿@using BE;
+﻿@model IEnumerable<Section>
+@using BE;
 <!DOCTYPE html>
 <html dir="rtl">
 <head>
@@ -10,16 +11,19 @@
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/buttons.css">
     <script>
-        function ShowQuestions(button) {
+        function ShowTitles(button) {
             for (var i = 1; i < 23; i++) {
+                //first hide all titles in dictionary menu
+                document.getElementById("text_" + i.toString()).hidden = "hidden";
+                //then hide all data in the page
+                document.getElementById(i.toString()).hidden = "hidden";
                 if (button.name == i.toString()) {
-                    if (document.getElementById(i.toString()).hidden == "")
-                        document.getElementById(i.toString()).hidden = "hidden";
-                    else
-                        document.getElementById(i.toString()).hidden = "";
+                    document.getElementById(i.toString()).hidden = "";
+                    document.getElementById("text_" + i.toString()).hidden = "";
                 }
             }
         }
+
     </script>
 </head>
 <body>
@@ -69,222 +73,43 @@
         <ul>
             @{
                 int counter = 1;
+                int counterQuestions = 1;
                 foreach (var letter in Enum.GetValues(typeof(Enums.AlphaAndBeta)))
                 {
             <li>
-                <a name=@counter onclick="ShowQuestions(this)">
+                <a name=@counter onclick="ShowTitles(this)">
                     <i class="fa-icon fa-2x"></i>
                     <span class="nav-text">
                         @letter.ToString()
                     </span>
                 </a>
                 <div id=@counter.ToString() hidden="hidden">
-                    <a href="#">
-                        <i class="fa-icon fa-2x"></i>
-                        <span class="nav-text">
-                            אבלים
-                        </span>
-                    </a>
+                    @foreach (var item in Model.Where(n => n.Title[0].ToString() == letter.ToString()).ToList())
+                    {
+                        if (item.Title.Split(' ').Length > 2)
+                        {<a  href="#@counter @counterQuestions">
+                                <i class="fa-icon fa-2x"></i>
+                                <span class="nav-text">
+                                    @item.Title.Split(' ').ToList()[0] @item.Title.Split(' ').ToList()[1] ...
+                                </span>
+                            </a>}
+                        else
+                        {
+                            <a class="nav-link" href="#@counter @counterQuestions">
+                                <i class="fa-icon fa-2x"></i>
+                                <span class="sr-only">
+                                    @item.Title
+                                </span>
+                            </a>}
+                        counterQuestions++;
+                    }
+                    @{counterQuestions = 1;
+                    }
                 </div>
                 @{counter += 1;}
             </li>
                 }
             }
-
-            @*<li>
-                <a href="~/Groups">
-                    <i class="fa-icon fa-2x"></i>
-                    <span class="nav-text">
-                        ב
-                    </span>
-                </a>
-                <div hidden="hidden">
-                    <a href="#">
-                        <i class="fa-icon fa-2x"></i>
-                        <span class="nav-text">
-                            בגידה
-                        </span>
-                    </a>
-                    <a href="#">
-                        <i class="fa-icon fa-2x"></i>
-                        <span class="nav-text">
-                            בגידה
-                        </span>
-                    </a>
-                    <a href="#">
-                        <i class="fa-icon fa-2x"></i>
-                        <span class="nav-text">
-                            בגידה
-                        </span>
-                    </a>
-                    <a href="#">
-                        <i class="fa-icon fa-2x"></i>
-                        <span class="nav-text">
-                            בגידה
-                        </span>
-                    </a>
-                </div>
-            </li>
-            <li>
-                <a href="~/Groups">
-                    <i class="fa-icon fa-2x"></i>
-                    <span class="nav-text">
-                        ג
-                    </span>
-                </a>
-            </li>
-            <li>
-                <a href="~/Groups">
-                    <i class="fa-icon fa-2x"></i>
-                    <span class="nav-text">
-                        ד
-                    </span>
-                </a>
-            </li>
-            <li>
-                <a href="~/Groups">
-                    <i class="fa-icon fa-2x"></i>
-                    <span class="nav-text">
-                        ה
-                    </span>
-                </a>
-            </li>
-            <li>
-                <a href="~/Groups">
-                    <i class="fa-icon fa-2x"></i>
-                    <span class="nav-text">
-                        ו
-                    </span>
-                </a>
-            </li>
-            <li>
-                <a href="~/Groups">
-                    <i class="fa-icon fa-2x"></i>
-                    <span class="nav-text">
-                        ז
-                    </span>
-                </a>
-            </li>
-            <li>
-                <a href="~/Groups">
-                    <i class="fa-icon fa-2x"></i>
-                    <span class="nav-text">
-                        ח
-                    </span>
-                </a>
-            </li>
-            <li>
-                <a href="~/Groups">
-                    <i class="fa-icon fa-2x"></i>
-                    <span class="nav-text">
-                        ט
-                    </span>
-                </a>
-            </li>
-            <li>
-                <a href="~/Groups">
-                    <i class="fa-icon fa-2x"></i>
-                    <span class="nav-text">
-                        י
-                    </span>
-                </a>
-            </li>
-            <li>
-                <a href="~/Groups">
-                    <i class="fa-icon fa-2x"></i>
-                    <span class="nav-text">
-                        כ
-                    </span>
-                </a>
-            </li>
-            <li>
-                <a href="~/Groups">
-                    <i class="fa-icon fa-2x"></i>
-                    <span class="nav-text">
-                        ל
-                    </span>
-                </a>
-            </li>
-            <li>
-                <a href="~/Groups">
-                    <i class="fa-icon fa-2x"></i>
-                    <span class="nav-text">
-                        מ
-                    </span>
-                </a>
-            </li>
-            <li>
-                <a href="~/Groups">
-                    <i class="fa-icon fa-2x"></i>
-                    <span class="nav-text">
-                        נ
-                    </span>
-                </a>
-            </li>
-            <li>
-                <a href="~/Groups">
-                    <i class="fa-icon fa-2x"></i>
-                    <span class="nav-text">
-                        ס
-                    </span>
-                </a>
-            </li>
-            <li>
-                <a href="~/Groups">
-                    <i class="fa-icon fa-2x"></i>
-                    <span class="nav-text">
-                        ע
-                    </span>
-                </a>
-            </li>
-            <li>
-                <a href="~/Groups">
-                    <i class="fa-icon fa-2x"></i>
-                    <span class="nav-text">
-                        פ
-                    </span>
-                </a>
-            </li>
-            <li>
-                <a href="~/Groups">
-                    <i class="fa-icon fa-2x"></i>
-                    <span class="nav-text">
-                        צ
-                    </span>
-                </a>
-            </li>
-            <li>
-                <a href="~/Groups">
-                    <i class="fa-icon fa-2x"></i>
-                    <span class="nav-text">
-                        ק
-                    </span>
-                </a>
-            </li>
-            <li>
-                <a href="~/Groups">
-                    <i class="fa-icon fa-2x"></i>
-                    <span class="nav-text">
-                        ר
-                    </span>
-                </a>
-            </li>
-            <li>
-                <a href="~/Groups">
-                    <i class="fa-icon fa-2x"></i>
-                    <span class="nav-text">
-                        ש
-                    </span>
-                </a>
-            </li>
-            <li>
-                <a href="~/Groups">
-                    <i class="fa-icon fa-2x"></i>
-                    <span class="nav-text">
-                        ת
-                    </span>
-                </a>
-            </li>*@
         </ul>
     </nav>
     <div class="area">
